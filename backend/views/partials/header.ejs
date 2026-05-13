@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : 'eCommerce' %></title>
+    <link href="/css/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen flex flex-col">
+<header class="bg-white border-b border-shade-border lg:sticky top-0 z-50 shadow-sm">
+      
+      <div class="container py-4 flex items-center justify-between gap-6">
+        <div class="flex items-center gap-2 cursor-pointer" >
+          <img src="/assets/Layout1/Image/flags/DE@2x.png" alt="Brand" class="h-[46px]" />
+        </div>
+
+        <div class="flex-1 max-w-2xl flex border-2 border-primary rounded-lg overflow-hidden">
+          <input
+            type="text"
+            placeholder="Search"
+            class="flex-1 px-4 py-2 outline-none"
+          />
+          <div class="flex items-center border-l px-4 py-2 bg-white cursor-pointer hover:bg-gray-50">
+            <span class="text-sm">All category</span>
+            <i data-lucide="chevron-down"></i>
+          </div>
+          <button
+            class="bg-primary hover:bg-primary-dark text-white px-8 py-2 font-medium transition-colors"
+            
+          >
+            Search
+          </button>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <div class="flex flex-col items-center cursor-pointer text-secondary hover:text-primary transition-colors" >
+            <i data-lucide="user"></i>
+            <span class="text-xs">Profile</span>
+          </div>
+          <div class="flex flex-col items-center cursor-pointer text-secondary hover:text-primary transition-colors" >
+            <i data-lucide="message-square"></i>
+            <span class="text-xs">Message</span>
+          </div>
+          <div class="flex flex-col items-center cursor-pointer text-secondary hover:text-primary transition-colors" >
+            <i data-lucide="heart"></i>
+            <span class="text-xs">Orders</span>
+          </div>
+          <div class="flex flex-col items-center cursor-pointer text-secondary hover:text-primary transition-colors" >
+            <i data-lucide="shopping-cart"></i>
+            <span class="text-xs">My cart</span>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="border-t border-shade-border bg-white overflow-x-auto lg:overflow-visible no-scrollbar">
+        <div class="container py-3 flex items-center justify-between whitespace-nowrap gap-4">
+          <nav class="flex items-center gap-6 font-medium text-dark">
+            <div class="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors" >
+              <i data-lucide="menu"></i>
+              <span>All category</span>
+            </div>
+            <a href="#" class="hover:text-primary transition-colors" }>Hot offers</a>
+            <a href="#" class="hover:text-primary transition-colors">Gift boxes</a>
+            <a href="#" class="hover:text-primary transition-colors">Projects</a>
+            <a href="#" class="hover:text-primary transition-colors">Menu item</a>
+            <div class="flex items-center gap-1 cursor-pointer hover:text-primary transition-colors">
+              <span>Help</span>
+              <i data-lucide="chevron-down"></i>
+            </div>
+          </nav>
+
+          <div class="flex items-center gap-6 font-medium text-dark">
+            <div class="flex items-center gap-1 cursor-pointer">
+              <span>English, USD</span>
+              <i data-lucide="chevron-down"></i>
+            </div>
+            <div class="flex items-center gap-1 cursor-pointer">
+              <span>Ship to</span>
+              <img src="/assets/Layout1/Image/flags/DE@2x.png" alt="DE" class="w-5 h-3 rounded-sm shadow-sm" />
+              <i data-lucide="chevron-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
