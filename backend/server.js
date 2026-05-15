@@ -15,9 +15,22 @@ app.use(cookieParser());
 // Connect to Database
 connectDB();
 
+// DB Connection Middleware
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    res.status(500).send('Database connection error');
+  }
+});
+
 // Set EJS as templating engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+const viewsPath = process.env.NODE_ENV === 'production' 
+  ? path.join(process.cwd(), 'backend', 'views')
+  : path.join(__dirname, 'views');
+app.set('views', viewsPath);
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
