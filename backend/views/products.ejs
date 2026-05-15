@@ -95,6 +95,40 @@
             <% } %>
           </div>
 
+          <% if(totalPages > 1) { %>
+          <div class="flex justify-end mt-8">
+            <div class="flex items-center gap-3">
+              <div class="flex border border-[#DEE2E7] rounded-md overflow-hidden bg-white">
+                <% if(currentPage > 1) { %>
+                <a href="/products?page=<%= currentPage - 1 %>&search=<%= searchQuery %>&category=<%= selectedCategory %>" class="px-3 py-2 border-r border-[#DEE2E7] hover:bg-shade text-dark flex items-center transition-colors">
+                  <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </a>
+                <% } else { %>
+                <div class="px-3 py-2 border-r border-[#DEE2E7] opacity-30 cursor-not-allowed text-dark flex items-center">
+                  <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </div>
+                <% } %>
+                
+                <% for(let p=1; p<=totalPages; p++) { %>
+                <a href="/products?page=<%= p %>&search=<%= searchQuery %>&category=<%= selectedCategory %>" class="px-4 py-2 border-r border-[#DEE2E7] <%= p === currentPage ? 'bg-shade font-bold text-dark' : 'hover:bg-shade text-dark transition-colors' %> text-sm">
+                  <%= p %>
+                </a>
+                <% } %>
+
+                <% if(currentPage < totalPages) { %>
+                <a href="/products?page=<%= currentPage + 1 %>&search=<%= searchQuery %>&category=<%= selectedCategory %>" class="px-3 py-2 hover:bg-shade text-dark flex items-center transition-colors shadow-sm">
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+                <% } else { %>
+                <div class="px-3 py-2 opacity-30 cursor-not-allowed text-dark flex items-center">
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <% } %>
+
         </main>
       </div>
     </div>

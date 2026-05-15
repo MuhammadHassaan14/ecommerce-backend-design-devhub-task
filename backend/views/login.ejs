@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<main class="flex-grow flex items-center justify-center bg-[#F7F7F7] py-12">
+  <div class="bg-white p-8 rounded-lg shadow-sm border border-[#DEE2E7] w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center text-[#1C1C1C] mb-6">Sign in</h2>
+    
+    <% if (error) { %>
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+        <span class="block sm:inline"><%= error %></span>
+      </div>
+    <% } %>
+
+    <form action="/auth/login" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-[#1C1C1C] mb-1">Email address</label>
+        <input type="email" name="email" required placeholder="Email" class="w-full border border-[#DEE2E7] rounded-md px-4 py-2 outline-none focus:border-primary">
+      </div>
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <label class="block text-sm font-medium text-[#1C1C1C]">Password</label>
+          <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+        </div>
+        <input type="password" name="password" required placeholder="Password" class="w-full border border-[#DEE2E7] rounded-md px-4 py-2 outline-none focus:border-primary">
+      </div>
+      <div class="flex items-center">
+        <input type="checkbox" id="remember" class="w-4 h-4 rounded border-[#DEE2E7] text-primary focus:ring-primary">
+        <label for="remember" class="ml-2 text-sm text-[#505050]">Remember me</label>
+      </div>
+      <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-md transition-colors">
+        Log in
+      </button>
+    </form>
+    <div class="mt-6 text-center text-sm text-[#505050]">
+      Don't have an account? <a href="/auth/signup" class="text-primary hover:underline">Register now</a>
+    </div>
+  </div>
+</main>
+<%- include('partials/footer') %>
