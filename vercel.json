@@ -5,22 +5,14 @@
       "src": "backend/server.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["backend/views/**", "backend/public/**"]
+        "includeFiles": ["backend/views/**"]
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/assets/(.*)",
-      "dest": "/backend/public/assets/$1"
-    },
-    {
-      "src": "/css/(.*)",
-      "dest": "/backend/public/css/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "backend/server.js"
+      "source": "/(.*)",
+      "destination": "/backend/server.js"
     }
   ]
 }
