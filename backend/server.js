@@ -1,8 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
+const connectDB = require('./config/db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Connect to Database
+connectDB();
 
 // Set EJS as templating engine
 app.set('view engine', 'ejs');

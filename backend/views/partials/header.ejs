@@ -11,27 +11,31 @@
 <header class="bg-white border-b border-shade-border lg:sticky top-0 z-50 shadow-sm">
       
       <div class="container py-4 flex items-center justify-between gap-6">
-        <div class="flex items-center gap-2 cursor-pointer" >
-          <img src="/assets/Layout1/Image/flags/DE@2x.png" alt="Brand" class="h-[46px]" />
-        </div>
+        <a href="/" class="flex items-center gap-2 cursor-pointer" >
+          <img src="/assets/Layout/Brand/logo-colored.png" alt="Brand" class="h-[46px]" />
+        </a>
 
-        <div class="flex-1 max-w-2xl flex border-2 border-primary rounded-lg overflow-hidden">
+        <form action="/products" method="GET" class="flex-1 max-w-2xl flex border-2 border-primary rounded-lg overflow-hidden">
           <input
             type="text"
+            name="search"
             placeholder="Search"
+            value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>"
             class="flex-1 px-4 py-2 outline-none"
           />
-          <div class="flex items-center border-l px-4 py-2 bg-white cursor-pointer hover:bg-gray-50">
-            <span class="text-sm">All category</span>
-            <i data-lucide="chevron-down"></i>
+          <div class="flex items-center border-l px-2 py-2 bg-white cursor-pointer hover:bg-gray-50">
+            <select name="category" class="outline-none bg-transparent text-sm cursor-pointer px-2">
+              <option value="All category" <%= typeof selectedCategory !== 'undefined' && selectedCategory === 'All category' ? 'selected' : '' %>>All category</option>
+              <option value="Electronics" <%= typeof selectedCategory !== 'undefined' && selectedCategory === 'Electronics' ? 'selected' : '' %>>Electronics</option>
+              <option value="Smartphones" <%= typeof selectedCategory !== 'undefined' && selectedCategory === 'Smartphones' ? 'selected' : '' %>>Smartphones</option>
+              <option value="Modern tech" <%= typeof selectedCategory !== 'undefined' && selectedCategory === 'Modern tech' ? 'selected' : '' %>>Modern tech</option>
+              <option value="Mobile accessory" <%= typeof selectedCategory !== 'undefined' && selectedCategory === 'Mobile accessory' ? 'selected' : '' %>>Mobile accessory</option>
+            </select>
           </div>
-          <button
-            class="bg-primary hover:bg-primary-dark text-white px-8 py-2 font-medium transition-colors"
-            
-          >
+          <button type="submit" class="bg-primary hover:bg-primary-dark text-white px-8 py-2 font-medium transition-colors">
             Search
           </button>
-        </div>
+        </form>
 
         <div class="flex items-center gap-6">
           <div class="flex flex-col items-center cursor-pointer text-secondary hover:text-primary transition-colors" >
