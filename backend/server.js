@@ -31,6 +31,11 @@ app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/auth', authRouter);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+}
+
+// Export for Vercel serverless deployment
+module.exports = app;
